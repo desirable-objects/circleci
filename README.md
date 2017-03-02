@@ -1,3 +1,5 @@
+[![Travis CI](https://api.travis-ci.org/desirable-objects/circleci.svg?branch=master)]
+
 # circleci
 Base nodejs build image for CircleCI 2.0
 
