@@ -6,8 +6,10 @@ services:
   - docker
 
 script:
-- docker build -t desirableobjects/circleci:latest -f Dockerfile .
-- docker build -t desirableobjects/circleci:dind -f Dockerfile.dind .
-- docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push desirableobjects/circleci:latest
-- docker push desirableobjects/circleci:dind
+  - docker build -t desirableobjects/circleci:latest -f Dockerfile .
+  - docker build -t desirableobjects/circleci:dind -f Dockerfile.dind .
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+deploy:
+  - docker push desirableobjects/circleci:latest
+  - docker push desirableobjects/circleci:dind
