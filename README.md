@@ -1,4 +1,4 @@
-[![Travis CI](https://api.travis-ci.org/desirable-objects/circleci.svg?branch=master)]
+[![Travis CI](https://api.travis-ci.org/desirable-objects/circleci.svg?branch=master)](https://travis-ci.org/desirable-objects/circleci)
 
 # circleci
 Base nodejs build image for CircleCI 2.0
