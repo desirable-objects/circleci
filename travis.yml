@@ -1,14 +1,11 @@
 sudo: required
 
-language: ruby
-
 services:
   - docker
 
-before_install:
+script:
 - docker build -t desirableobjects/circleci:latest -f Dockerfile .
 - docker build -t desirableobjects/circleci:dind -f Dockerfile.dind .
-
-script:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
 - docker push desirableobjects/circleci:latest
 - desirableobjects/circleci:dind
