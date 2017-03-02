@@ -10,6 +10,6 @@ script:
   - docker build -t desirableobjects/circleci:dind -f Dockerfile.dind .
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-deploy:
+after_success:
   - docker push desirableobjects/circleci:latest
   - docker push desirableobjects/circleci:dind
