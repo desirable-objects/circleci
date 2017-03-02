@@ -1,17 +1,5 @@
-FROM docker:dind
+FROM desirableobjects/circleci:latest
 
-RUN apk --no-cache -U add wget
-ENV NODE_VERSION=v7.7.1
-
-RUN apk upgrade --update && \
-    apk add --update yarn openssh git curl make gcc g++ python linux-headers libgcc libstdc++ && \
-    curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
-    cd /node-${NODE_VERSION} && \
-    ./configure --prefix=/usr --without-snapshot && \
-    make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
-    make install && \
-    cd / && \
-    apk del gcc g++ linux-headers && \
-    rm -rf /etc/ssl /node-${NODE_VERSION} /usr/include \
-    /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
-    /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
+RUN curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz
+RUN tar -xz -C /tmp -f /tmp/docker.tgz
+RUN mv /tmp/docker/docker* /usr/bin/
