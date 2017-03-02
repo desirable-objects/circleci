@@ -22,6 +22,8 @@ This baseline image for CircleCI 2.0 gives you:
 - Latest NodeJS
 - Latest Alpine for speed
 
+## Using :latest
+
 A build using this image looks something like:
 
 ```yaml
@@ -41,6 +43,23 @@ stages:
       - type: shell
         shell: /bin/sh
         command: yarn run test # Run your tests
+```
+
+## Using :dind
+
+You can use the dind image much the same as the above, but don't forget the critical `setup-docker-engine` step, before your docker commands:
+
+```yaml
+  ...
+
+  - type: setup-docker-engine
+
+  - type: deploy
+    shell: /bin/sh
+    command: |
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASS
+      docker build --rm=false -t your/docker-image .
+      docker push your/docker-image
 ```
 
 # Alternate images
