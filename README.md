@@ -47,5 +47,5 @@ stages:
 
 All images use alpine. Tag variants are:
 
-`:latest` - Latest generic, includes npm, and yarn
-`:dind` - "Docker in Docker" Includes everything from `:latest`, but also has docker inside it, useful for building and publishing docker images.
+- `:latest` - Latest generic, includes npm, and yarn
+- `:dind` - "Docker in Docker" Includes everything from `:latest`, but also has docker inside it, useful for building and publishing docker images.
