@@ -1,4 +1,4 @@
 FROM desirableobjects/circleci:latest
 
 RUN apk -U --no-cache add make gcc g++ python
-RUN yarn add -g node-gyp
+RUN yarn add node-gyp -g
