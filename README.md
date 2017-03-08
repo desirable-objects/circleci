@@ -22,7 +22,7 @@ This baseline image for CircleCI 2.0 gives you:
 - Latest NodeJS
 - Latest Alpine for speed
 
-## Using :latest
+## Using :latest / :node-gyp
 
 A build using this image looks something like:
 
