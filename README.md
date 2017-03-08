@@ -66,6 +66,5 @@ You can use the dind image much the same as the above, but don't forget the crit
 
 All images use alpine. Tag variants are:
 
-- `:latest` - Latest generic, includes npm, and yarn
+- `:latest` - Latest generic, includes npm, node-gyp, essential build tools, and yarn
 - `:dind` - "Docker in Docker" Includes everything from `:latest`, but also has docker inside it, useful for building and publishing docker images.
-- `:node-gyp` - Same as `:latest` but also includes build tools for running node-gyp / having native dependencies / dependencies with C bindings

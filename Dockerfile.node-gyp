@@ -1,4 +1,0 @@
-FROM desirableobjects/circleci:latest
-
-RUN apk -U --no-cache add make gcc g++ python
-RUN yarn global add node-gyp

@@ -8,10 +8,8 @@ services:
 script:
   - docker build -t desirableobjects/circleci:latest -f Dockerfile .
   - docker build -t desirableobjects/circleci:dind -f Dockerfile.dind .
-  - docker build -t desirableobjects/circleci:node-gyp -f Dockerfile.node-gyp .
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
 after_success:
   - docker push desirableobjects/circleci:latest
   - docker push desirableobjects/circleci:dind
-  - docker push desirableobjects/circleci:node-gyp
