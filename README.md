@@ -68,3 +68,4 @@ All images use alpine. Tag variants are:
 
 - `:latest` - Latest generic, includes npm, node-gyp, essential build tools, and yarn
 - `:dind` - "Docker in Docker" Includes everything from `:latest`, but also has docker inside it, useful for building and publishing docker images.
+- `:chromium` - Same as `:latest` but has chromium installed for acceptance testing.
