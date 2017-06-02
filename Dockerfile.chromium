@@ -1,0 +1,3 @@
+FROM desirableobjects/circleci:latest
+
+RUN apk -U --no-cache add chromium
