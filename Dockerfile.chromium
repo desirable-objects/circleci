@@ -1,6 +1,6 @@
 FROM desirableobjects/circleci:latest
 
-RUN apk -U --no-cache add chromium
+RUN apk -U --no-cache add chromium xvfb
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/ci && \
@@ -8,5 +8,10 @@ RUN export uid=1000 gid=1000 && \
     echo "ci:x:${uid}:" >> /etc/group && \
     chown ${uid}:${gid} -R /home/ci
 
+COPY xvfb-runner /usr/bin/xvfb-runner
+RUN chmod +x /usr/bin/xvfb-runner
+
 USER ci
 ENV HOME /home/ci
+
+CMD xvfb-runner
